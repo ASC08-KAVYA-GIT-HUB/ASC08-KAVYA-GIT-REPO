@@ -1,9 +1,9 @@
-package com.demo.oops.ZoomApp;
+package com.demo.lab2.ZoomApp;
 
 public class MeetingRoom {
    private int roomId ;
-   private int capacity;
-   private int floor;
+   private byte capacity;
+   private String floor;
    //getters and setters
    void setRoomId(int roomId)
    {
@@ -14,7 +14,7 @@ public class MeetingRoom {
    {
       return roomId;
    }
-   void setCapacity(int capacity)
+   void setCapacity(byte capacity)
    {
       this.capacity=capacity;
    }
@@ -22,11 +22,11 @@ public class MeetingRoom {
    {
       return capacity;
    }
-   void setFloor(int floor)
+   void setFloor(String floor)
    {
       this.floor=floor;
    }
-   int getFloor()
+   String getFloor()
    {
       return floor;
    }

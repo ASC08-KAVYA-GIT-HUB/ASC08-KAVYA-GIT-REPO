@@ -1,4 +1,4 @@
-package com.demo.oops.ZoomApp;
+package com.demo.lab2.ZoomApp;
 
 public class Employee {
 

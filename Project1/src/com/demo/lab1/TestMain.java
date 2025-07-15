@@ -1,6 +1,4 @@
-package com.demo.oops;
-
-import com.demo.Student;
+package com.demo.lab1;
 
 public class TestMain {
 

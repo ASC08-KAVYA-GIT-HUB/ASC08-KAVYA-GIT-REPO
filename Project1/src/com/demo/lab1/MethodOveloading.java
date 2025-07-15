@@ -1,4 +1,4 @@
-package com.demo;
+package com.demo.lab1;
 
 public class MethodOveloading {
 

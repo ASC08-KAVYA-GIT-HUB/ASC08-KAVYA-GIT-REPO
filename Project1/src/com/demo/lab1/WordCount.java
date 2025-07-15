@@ -1,4 +1,4 @@
-package com.demo.oops;
+package com.demo.lab1;
 
 public class WordCount {
 

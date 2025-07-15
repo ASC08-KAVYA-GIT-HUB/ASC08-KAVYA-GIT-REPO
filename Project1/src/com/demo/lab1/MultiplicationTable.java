@@ -1,7 +1,5 @@
-package com.demo.oops;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+package com.demo.lab1;
 
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class MultiplicationTable {

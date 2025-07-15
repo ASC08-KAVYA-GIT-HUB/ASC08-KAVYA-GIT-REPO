@@ -1,4 +1,4 @@
-package com.demo.oops;
+package com.demo.lab1;
 import java.util.*;
 public class ArrayStore {
     int n;
