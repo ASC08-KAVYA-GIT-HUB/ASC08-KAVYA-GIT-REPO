@@ -48,31 +48,34 @@ public class ArrayStore {
         }
         return count;
     }
-    public void insertAt(int num, int pos) {
+    public void insertAt() {
 
-        for (int i = n; i > pos; i--) {
-            array1[i] = array1[i - 1];
-        }
-        array1[pos] = num;
-        n++;
+Scanner sc=new Scanner(System.in);
+        System.out.println("enter the number and position to which element should be added");
+
+        int obj=sc.nextInt();
+        int obj2=sc.nextInt();
+        array1[obj2] = obj;
+
 
         System.out.println("After insertion:");
         displayForLoop();
+       ;
     }
 
-    public int[] removeDuplicates() {
-        Set<Integer> set = new LinkedHashSet<>();
-        for (int i = 0; i <n; i++) {
-            set.add(array1[i]);
+    public void removeDuplicates() {
+            Set<Integer> set = new LinkedHashSet<>();
+            for (int i = 0; i < array1.length; i++) {
+                set.add(array1[i]);
+            }
+
+            System.out.println("\nUnique elements after removing duplicates:");
+            for (int value : set) {
+                System.out.print(value + " ");
+            }
         }
 
-        int[] result = new int[set.size()];
-        int i = 0;
-        for (int val : set) {
-            result[i++] = val;
-        }
-        return result;
-    }
+
     public static void main(String args[])
     {
         ArrayStore a1=new ArrayStore();
@@ -82,8 +85,8 @@ public class ArrayStore {
         a1.sorting();
         a1.displayForLoop();
         System.out.println(a1.countOccurrences(3));
-        a1.insertAt(10,0);
-        System.out.println(a1.removeDuplicates());
+        a1.insertAt();
+        a1.removeDuplicates();
 
     }
 
