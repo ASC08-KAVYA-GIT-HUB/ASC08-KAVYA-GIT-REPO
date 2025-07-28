@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First Page</title>
+</head>
+<body>
+    <label id="label">Not clicked</label>
+    <button onclick="clicked()">Click!</button>
+
+    <script>
+        function clicked() {
+            alert("Button clicked!");
+            document.getElementById("label").textContent = "Clicked";
+        }
+    </script>
+</body>
+</html>
