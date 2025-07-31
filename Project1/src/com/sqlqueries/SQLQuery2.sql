@@ -269,3 +269,4 @@ select * from SalesLT.Address where AddressLine2=' ';
 -- query 100 Returns the total number of addresses in the Address table
 select count(*) from SalesLT.Address as count1;
 SELECT COUNT(AddressID) FROM SalesLT.Address;
+

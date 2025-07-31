@@ -1,4 +1,4 @@
-package com.demo.jdbc;
+package com.demo.jdbc.ms_sql;
 import java.sql.*;
 
 import java.sql.Connection;
