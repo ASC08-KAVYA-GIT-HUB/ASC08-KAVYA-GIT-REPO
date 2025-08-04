@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Friends App</title>
+</head>
+
+<body style="background-color: antiquewhite; font-family: Brush Script MTR,'Times New Roman', Times, serif;">
+    <h1>Friends App - Add Friend</h1>
+
+    <form id="friend-form" style="margin-left:50px;margin-top: 50px; color:green">
+        <div style="height :50px">
+            Friend ID:
+            <input type="text" id="friend-id" required placeholder="Enter ID" value="f001"> <br /><br />
+
+            Name:
+            <input type="text" id="friend-name" required placeholder="Enter Name" value="John Doe"> <br /><br />
+
+            Email:
+            <input type="email" id="friend-email" required value="john@example.com" placeholder="Enter Email">
+            <br /><br />
+
+            Phone:
+            <input type="tel" id="friend-phone" required pattern="\d{10}" value="9876543210" placeholder="Enter Phone"><br /><br />
+
+            City:
+            <input type="text" id="friend-city" required placeholder="Enter City" value="Bangalore"><br /><br />
+
+            <input type="submit" value="Add Friend">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+<br></br>
+<br></br>
+    <!-- Moved output outside the form -->
+    <div id="friend-output" style="margin:100px;padding:100px;color:#333; background-color: aqua;width:170px">
+
+    <script>
+        document.getElementById('friend-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var id = document.getElementById('friend-id').value;
+            var name = document.getElementById('friend-name').value;
+            var email = document.getElementById('friend-email').value;
+            var phone = document.getElementById('friend-phone').value;
+            var city = document.getElementById('friend-city').value;
+
+            var output= `
+            <h3>Friend Added:</h3>
+            <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; background-color: #f9f9f9;">
+                <tr>
+                    <th style="text-align:left;">Field</th>
+                    <th style="text-align:left;">Value</th>
+                </tr>
+                <tr>
+                    <td><b>ID</b></td>
+                    <td>${id}</td>
+                </tr>
+                <tr>
+                    <td><b>Name</b></td>
+                    <td>${name}</td>
+                </tr>
+                <tr>
+                    <td><b>Email</b></td>
+                    <td>${email}</td>
+                </tr>
+                <tr>
+                    <td><b>Phone</b></td>
+                    <td>${phone}</td>
+                </tr>
+                <tr>
+                    <td><b>City</b></td>
+                    <td>${city}</td>
+                </tr>
+            </table>
+        `
+         document.getElementById('friend-output').innerHTML = output;
+        console.log("Friend Added:", { id, name, email, phone, city });
+    });
+    </script>
+  </div>
+</body>
+
+</html>

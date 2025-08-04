@@ -7,6 +7,7 @@ import java.util.List;
 public class FriendServiceImpl implements FriendService{
        FriendRepository friendRepo = new FriendRepositoryImpl();
 
+
     @Override
 
     public boolean addFriend(Friend friend) {
@@ -18,12 +19,14 @@ public class FriendServiceImpl implements FriendService{
             return friendRepo.getAllFriends();
         }
 
-        @Override
-        public boolean updateFriend(Friend friend) {
-            return friendRepo.updateFriend(friend);
-        }
+    @Override
 
-        @Override
+    public boolean updateFriend(String id, String fieldName, String newValue) {
+        return friendRepo.updateFriend(id, fieldName, newValue);
+    }
+
+
+    @Override
         public boolean deleteFriend(String id) {
             return friendRepo.deleteFriend(id);
         }

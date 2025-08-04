@@ -1,0 +1,23 @@
+/* Font styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333333;
+    background-color: #f9f9f9;
+    margin: 20px;
+}
+
+/* Styling for the array display container using id selector */
+#arrayDisplay {
+    border: 2px solid #4CAF50;
+    padding: 15px;
+    background-color: #e8f5e9;
+    width: 300px;
+}
+
+/* Styling for each array item using class selector */
+.arrayItem {
+    font-weight: bold;
+    color: #2e7d32;
+    margin: 5px 0;
+}

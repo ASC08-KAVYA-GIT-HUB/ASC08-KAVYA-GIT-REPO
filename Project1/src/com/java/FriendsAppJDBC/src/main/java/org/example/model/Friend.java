@@ -21,6 +21,9 @@ public class Friend {
         this.phone = phone;
         this.city = city;
     }
+    public Friend()
+    {
+    }
 
     public String getPhone() {
         return phone;

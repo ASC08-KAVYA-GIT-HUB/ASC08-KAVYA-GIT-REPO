@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>My First Webpage</title>
+    </head>
+    <body  style="background-color: rgb(141, 124, 103);font-family:Arial, Helvetica, sans-serif">
+        <h1><b><u>Registration form</u></b></h1>
+        <form style="margin-left:50 px; margin-top: 50 px;color: rgb(128, 0, 94); ">
+        <div style="height: 50px; width: 300px; ">
+           Name: <input type="text" id="name" required value="jhon"><br></br>
+            password: <input type="password" id="password" placeholder="enter password"><br></br>
+            Gender:<br></br>
+             <input type ="radio" name="gender" > Male<br></br>
+                    <input type ="radio" name="gender">Female<br></br>
+             Food preference:<br></br>
+              <input type ="radio" name="food" checked>Veg<br></br>
+               <input type ="radio" name="food" checked>Non-veg<br></br>
+               Nationality:
+               <select id="Nationality" name="nation">
+               <option value="Indian">Indian</option>
+              <option value="American">American</option>
+              <option value="African">African</option>
+              <option value="nigerian">nigerian</option>
+               </select>
+<br></br>
+               <label>Email: <input type="email" id="email" placeholder="enter email"></label><br></br
+               <label>Phone:<input type="tel"  pattern="\d{10,15}" name="phone"></label><br></br>
+               <label> Date:<input type="date" id="date" placeholder="enter date"></label><br></br>
+             <!-- <button type="submit" style="background-color: blue; color: white;">Submit</button> -->
+              <label>Age:<input type="number" name="number"></label>
+
+              Hobbies:
+              <br></br>
+              <input type="checkbox" name="hobbies" value="reading">reading<br></br>
+              <input type="checkbox" name="hobbies" value="swimming">swimming<br></br>
+              <input type="checkbox" name="hobbies" value="dancing">dancing<br></br>
+              <input type="checkbox" name="hobbies" value="singing">singing<br></br>
+
+             <fieldset style="width: 500px;">
+                <legend >Food preference</legend>
+                <input type="radio" checked="checked" name="food">Veg<br></br>
+                <input type="radio" name="food">Non-veg<br></br>
+
+             </fieldset><br></br>
+               <input type="reset" value="Reset">
+               <input type="submit">
+        </form>
+        </body>
+    </div>
+</html>

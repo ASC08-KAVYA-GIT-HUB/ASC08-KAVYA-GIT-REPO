@@ -6,6 +6,6 @@ public interface FriendService {
 
         boolean addFriend(Friend friend);
         List<Friend> getAllFriends();
-        boolean updateFriend(Friend friend);
+        boolean updateFriend(String id, String fieldName, String newValue);
         boolean deleteFriend(String id);
 }

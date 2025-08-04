@@ -28,6 +28,10 @@ public class FriendRepositoryImpl implements FriendRepository {
                 newId = String.format("f%03d", num); // format to f006, etc.
             }
 
+            else {
+                newId = "F001";
+            }
+
             // 2. Set the new ID
             friend.setId(newId);
 
@@ -73,22 +77,22 @@ public class FriendRepositoryImpl implements FriendRepository {
     }
 
     @Override
-    public boolean updateFriend(Friend friend) {
-        try {
-            Connection conn = getConnection();
-            String updateQuery = "UPDATE friend SET name=?, email=?, phone=?, city=? WHERE id=?";
-            PreparedStatement pstmt = conn.prepareStatement(updateQuery);
-            pstmt.setString(1, friend.getName());
-            pstmt.setString(2, friend.getEmail());
-            pstmt.setString(3, friend.getPhone());
-            pstmt.setString(4, friend.getCity());
-            pstmt.setString(5, friend.getId());
-            return pstmt.executeUpdate() > 0;
+
+    public boolean updateFriend(String id, String fieldName, String newValue) {
+        Connection conn = getConnection();
+        String sql = "UPDATE friend SET " + fieldName + " = ? WHERE id = ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, newValue);
+            pstmt.setString(2, id);
+            int rows = pstmt.executeUpdate();
+            return rows > 0;
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error while updating: " + e.getMessage());
             return false;
         }
     }
+//if try with resource used , it automatically closes the pstmt after usage
 
     @Override
     public boolean deleteFriend(String id) {

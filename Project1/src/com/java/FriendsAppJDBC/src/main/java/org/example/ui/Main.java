@@ -38,20 +38,46 @@ public class Main {
                 case 3:
                     System.out.println("Enter ID to update:");
                     String uid = sc.nextLine();
-                    System.out.println("Enter new name:");
-                    name = sc.nextLine();
-                    System.out.println("Enter new email:");
-                    email = sc.nextLine();
-                    System.out.println("Enter new phone:");
-                    phone = sc.nextLine();
-                    System.out.println("Enter new city:");
-                    city = sc.nextLine();
-                    Friend updateFriend = new Friend(uid, name, email, phone, city);
-                    if (friendRepository.updateFriend(updateFriend))
-                        System.out.println("Friend updated.");
-                    else
+
+                    System.out.println("Which field do you want to update?");
+                    System.out.println("1. Name\n2. Email\n3. Phone\n4. City");
+                    int fieldChoice = sc.nextInt();
+                    sc.nextLine(); // consume newline
+
+                    String fieldName = "";
+                    String newValue = "";
+
+                    switch (fieldChoice) {
+                        case 1:
+                            fieldName = "name";
+                            System.out.print("Enter new name: ");
+                            break;
+                        case 2:
+                            fieldName = "email";
+                            System.out.print("Enter new email: ");
+                            break;
+                        case 3:
+                            fieldName = "phone";
+                            System.out.print("Enter new phone: ");
+                            break;
+                        case 4:
+                            fieldName = "city";
+                            System.out.print("Enter new city: ");
+                            break;
+                        default:
+                            System.out.println("Invalid choice");
+                            return;
+                    }
+
+                    newValue = sc.nextLine();
+
+                    if (friendRepository.updateFriend(uid, fieldName, newValue)) {
+                        System.out.println("Friend updated successfully.");
+                    } else {
                         System.out.println("Update failed.");
+                    }
                     break;
+
                 case 4:
                     System.out.println("Enter ID to delete:");
                     String did = sc.nextLine();
