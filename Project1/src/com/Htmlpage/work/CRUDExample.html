@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="container" class="mt-4">
+        <h1 style="margin-top:50px">
+    <!-- Heading -->
+    <h2>User Management</h2>
+    <!-- Table to display list of users -->
+  <form id="user-form" class="mb-4">
+    <input type="hidden" id="editing-index" value="">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Name" required value="Ben">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Email" required value="ben@example.com">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+
+    <table id="user-table">
+        <thead>
+            <tr>
+                <th>#</th> 
+                <th>Name</th> 
+                <th>Email</th> 
+                <th>Actions</th> 
+            </tr>
+            <!-- <tr>
+                <td>1</td>
+                <td>Ben</td>
+                <td>ben@example.com</td>
+                <td class="actions"> -->
+                    <!-- The data-index attribute is used to identify the user being edited or deleted -->
+                    <!-- <button class="edit btn btn-success" data-index="0">Edit</button>
+                    <button class="delete btn btn-danger" data-index="0">Delete</button>
+                </td>
+            </tr> -->
+        </thead>
+        <tbody></tbody> 
+    </table>
+    </div>
+    <script>
+        let users = [
+            { name: 'Ben', email: 'ben@example.com' },
+            { name: 'Alice', email: 'alice@example.com' },
+            { name: 'Charlie', email: 'charlie@example.com' }
+        ];
+        const form = document.getElementById('user-form');
+        const tableBody = document.querySelector('#user-table tbody');
+
+      
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const editingIndexInput = document.getElementById('editing-index');
+
+        // Function to render the entire user table
+        function renderTable() {
+            // Clear existing rows before re-rendering
+            tableBody.innerHTML = '';
+
+            // Loop through each user and add a row to the table
+            users.forEach((user, index) => {
+                const row = document.createElement('tr'); // Create a new table row
+                // The ${} syntax is used to insert dynamic values into the HTML string
+                // The `` template literal allows for multi-line strings and variable interpolation
+                row.innerHTML = `
+          <td>${index + 1}</td>                     
+          <td>${user.name}</td>                     
+          <td>${user.email}</td>                   
+          <td class="actions">                     
+            <button onclick="editUser(${index})" class="btn btn-warning">Edit</button>
+            <button onclick="deleteUser(${index})" class="btn btn-danger">Delete</button>
+          </td>
+        `;
+                tableBody.appendChild(row); // Add the row to the table body
+            });
+        }
+
+            // Form submit handler (runs on form submission)
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent actual form submission (page reload)
+
+      // Read current input values
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const editingIndex = editingIndexInput.value;
+
+      if (editingIndex === '') {
+        // No index = new user => CREATE operation
+        users.push({ name, email }); // Add new user object to the array
+      } else {
+        // Index exists => UPDATE operation
+        users[editingIndex] = { name, email }; // Overwrite the existing user
+        editingIndexInput.value = ''; // Clear editing mode
+      }
+
+      form.reset();       // Clear input fields
+      renderTable();      // Refresh table to show new/updated user
+    });
+           // Function to pre-fill the form for editing a user
+    function editUser(index) {
+      const user = users[index];              
+      nameInput.value = user.name;          
+      emailInput.value = user.email;          
+      editingIndexInput.value = index;        
+    }
+        function deleteUser(index) { 
+            // alert(`Deleting user: ${users[index].name}`);
+            let confirmDelete = confirm(`Are you sure you want to delete ${users[index].name}?`);
+            if (confirmDelete) {
+                users.splice(index, 1); // Remove the user from the array
+                renderTable(); // Re-render the table
+            }  
+        }
+        renderTable();
+    </script>
+</body>
+
+</html>
