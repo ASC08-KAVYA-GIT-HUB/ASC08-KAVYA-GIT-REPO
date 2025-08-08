@@ -1,16 +1,19 @@
-package org.example;
+package org.ex;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Hello world!
+ *
+ */
 @SpringBootApplication
-
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        System.out.println("hello world");
         SpringApplication.run(App.class,args);
-        System.err.println("Welcome to our spring app");
+        System.err.println("Welcome to Spring Application");
     }
 }
