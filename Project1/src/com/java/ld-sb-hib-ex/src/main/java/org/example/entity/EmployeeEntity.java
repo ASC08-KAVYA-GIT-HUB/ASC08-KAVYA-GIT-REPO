@@ -4,22 +4,22 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "EMPLOYEES")
-public class EmployeeModel {
+public class EmployeeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "First_Name",nullable = false)
             private String firstName;
-    @Column(name = "Last_Name",nullable = false)
+    @Column(name = "Last_Name")
     private String lastName;
-   @Column(name = "Email_id",nullable = false)
+   @Column(name = "Email_id")
    private String emailId;
 
 
-    public EmployeeModel() {
+    public EmployeeEntity() {
     }
 
-    public EmployeeModel(Long id, String firstName, String lastName, String emailId) {
+    public EmployeeEntity(Long id, String firstName, String lastName, String emailId) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

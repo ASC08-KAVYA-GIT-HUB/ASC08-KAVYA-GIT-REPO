@@ -1,7 +1,7 @@
 package org.example.controller;
 
-import org.example.entity.EmployeeModel;
-import org.example.model.Employee;
+import org.example.entity.EmployeeEntity;
+import org.example.model.EmployeeModel;
 import org.example.repository.EmployeeRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,28 +26,28 @@ public class EmployeeControllerUsingModel {
     }
 
     @GetMapping("/getEmployeeAsList")
-    public List<Employee> getEmployeeAsList()
+    public List<EmployeeModel> getEmployeeAsList()
     {
-        List<Employee> employees=new java.util.ArrayList<>();
-        employees.add(new Employee(1,"Alice"));
-        employees.add(new Employee(2,"Bob"));
-        employees.add(new Employee(3,"Charlie"));
+        List<EmployeeModel> employees=new java.util.ArrayList<>();
+        employees.add(new EmployeeModel(1,"Alice"));
+        employees.add(new EmployeeModel(2,"Bob"));
+        employees.add(new EmployeeModel(3,"Charlie"));
         return employees;
     }
     @GetMapping("/getEmployeeAsMap")
-    public Map<Integer,Employee> getEmployeeAsMap()
+    public Map<Integer, EmployeeModel> getEmployeeAsMap()
     {
-        Map<Integer,Employee> employeeMap=new HashMap<>();
-        employeeMap.put(1,new Employee(1,"Alice"));
-        employeeMap.put(2,new Employee(2,"Bob"));
-        employeeMap.put(3,new Employee(3,"Charlie"));
+        Map<Integer, EmployeeModel> employeeMap=new HashMap<>();
+        employeeMap.put(1,new EmployeeModel(1,"Alice"));
+        employeeMap.put(2,new EmployeeModel(2,"Bob"));
+        employeeMap.put(3,new EmployeeModel(3,"Charlie"));
         return employeeMap;
     }
 
     @PostMapping("/createProduct")
 
-    public EmployeeModel createProduct(@RequestBody EmployeeModel employeeDto) {
-        EmployeeModel employeeEntity = new EmployeeModel();
+    public EmployeeEntity createProduct(@RequestBody EmployeeEntity employeeDto) {
+        EmployeeEntity employeeEntity = new EmployeeEntity();
         employeeEntity.setId(employeeDto.getId());
         employeeEntity.setFirstName(employeeDto.getFirstName());
         return employeeRepository.save(employeeEntity);

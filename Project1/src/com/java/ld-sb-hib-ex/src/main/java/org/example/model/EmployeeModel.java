@@ -1,9 +1,9 @@
 package org.example.model;
 
-public  class Employee{
+public  class EmployeeModel {
         private int id;
         private String name;
-        public Employee(int id,String name)
+        public EmployeeModel(int id, String name)
         {
             this.id=id;
             this.name=name;

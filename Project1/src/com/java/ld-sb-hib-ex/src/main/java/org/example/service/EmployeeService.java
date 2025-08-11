@@ -1,10 +1,11 @@
 package org.example.service;
 
-import org.example.entity.EmployeeModel;
+import org.example.entity.EmployeeEntity;
+import org.example.model.EmployeeModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+
 public interface EmployeeService {
-List<EmployeeModel> getAllEmployees();
+List<EmployeeEntity> getAllEmployees();
 }
