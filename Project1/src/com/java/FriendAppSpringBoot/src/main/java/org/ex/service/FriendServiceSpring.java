@@ -9,7 +9,7 @@ public interface FriendServiceSpring {
     List<Friend> getAllFriends();
     Friend getFriendById(Long Id);
     void deleteById(Long Id);
-   boolean login(String userName,String password);
-   void signUp(Friend friend);
+    Friend updateFriend(Long id, Friend friend);
+
 
 }

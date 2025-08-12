@@ -22,14 +22,11 @@ public class Friend {
     @Column(name = "city", nullable = false)
     private String city;
 
-    @Column(name = "user_name", nullable = false)
-    private String userName;
 
-    @Column(name = "password", nullable = false)
-    private String password;
 
     // Default constructor required by JPA
     public Friend() {}
+
 
     // All-args constructor
     public Friend(Long id, String name, String email, String phone, String city, String userName, String password) {
@@ -38,8 +35,7 @@ public class Friend {
         this.email = email;
         this.phone = phone;
         this.city = city;
-        this.userName = userName;
-        this.password = password;
+
     }
 
     // Getters & Setters (follow JavaBean naming convention)
@@ -58,9 +54,5 @@ public class Friend {
     public String getCity() { return city; }
     public void setCity(String city) { this.city = city; }
 
-    public String getUserName() { return userName; }
-    public void setUserName(String userName) { this.userName = userName; }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
 }
