@@ -1,6 +1,7 @@
 package org.ex.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "FriendsAppHib")
@@ -21,7 +22,7 @@ public class Friend {
 
     @Column(name = "city", nullable = false)
     private String city;
-
+     private LocalDateTime FriendCreatedOn= LocalDateTime.now();
 
 
     // Default constructor required by JPA
