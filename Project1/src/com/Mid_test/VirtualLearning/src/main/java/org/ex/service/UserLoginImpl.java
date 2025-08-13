@@ -1,6 +1,7 @@
 package org.ex.service;
 
 import org.ex.entity.UserLogin;
+import org.ex.exceptioncustoms.InvalidPasswordException;
 import org.ex.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,9 @@ public class UserLoginImpl implements UserLoginService{
     @Override
     public boolean login(String loginId, String password) {
         UserLogin user = loginRepository.findByLoginId(loginId);
+        if (!user.getPassword().equals(password)) {
+            throw new InvalidPasswordException("Password is incorrect");
+        }
         return user != null && user.getPassword().equals(password);
     }
 }

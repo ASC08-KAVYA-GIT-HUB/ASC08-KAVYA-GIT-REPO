@@ -22,14 +22,14 @@ public class CourseController {
 
 
     // Delete course
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteCourse(@PathVariable Long id) {
         courseService.deleteCourse(id);
         return "Course deleted successfully!";
     }
 
     // Get course by ID
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
     public Course getCourseById(@PathVariable Long id) {
         return courseService.getCourseById(id);
     }

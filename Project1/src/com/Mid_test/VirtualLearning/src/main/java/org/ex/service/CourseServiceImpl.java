@@ -1,6 +1,7 @@
 package org.ex.service;
 
 import org.ex.entity.Course;
+import org.ex.exceptioncustoms.CourseNotFoundException;
 import org.ex.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,9 +31,10 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Course getCourseById(Long id) {
-        return courseRepository.findById(id).orElse(null);
-
+        return courseRepository.findById(id) .orElseThrow(() -> new CourseNotFoundException("Course with ID " + id + " not found"));
     }
+
+
 
     @Override
     public List<Course> getAllCourses() {
